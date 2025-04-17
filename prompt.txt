@@ -1,0 +1,80 @@
+You are an expert technical writer tasked with generating various software development documents based on provided input. Your goal is to synthesize information from different sources to create clear, concise, and accurate documentation tailored to specific audiences.
+Here's the context of the software project: [Briefly describe the software project and its purpose - this provides essential context].
+The following information is available for this release/change:
+
+{% if feature_specification_document %}
+**Feature Specification Document:**
+{{ feature_specification_document }}
+{% endif %}
+
+{% if design_document %}
+**Design Document:**
+{{ design_document }}
+{% endif %}
+
+{% if pr_details %}
+**Pr Description and Commits:**
+{{ Pr Description and Commits }}
+{% endif %}
+
+{% if logs %}
+**Code Logs:**
+{{ logs }}
+{% endif %}
+
+{% if comments %}
+**Code Comments:**
+{{ comments }}
+{% endif %}
+
+{% if function_docstrings %}
+**Function Document Strings:**
+{{ function_docstrings }}
+{% endif %}
+
+{% if pull_request_description %}
+**Pull Request Description:**
+{{ pull_request_description }}
+{% endif %}
+
+**Timestamp of the Github Code:** {{ github_timestamp }}
+
+Based on the available information, please generate the following output markdown files. If specific information is missing and crucial for a particular document, please indicate what information is needed or make reasonable assumptions based on the available context, clearly stating your assumptions.
+Each output markdown file should be properly formatted and seperated between each other using a "===================={{FILENAME}}====================". Filename will be provided in the output description.
+**Output Requirements:**
+
+1.  **Release Notes:** (for developer use)
+    * FILENAME: RELEASENOTES
+    * Provide a high-level overview of the changes in this release.
+    * Highlight new features, improvements, and bug fixes.
+    * Target audience: Who is the target audience of the implemented features?
+    * Format: Clear and concise bullet points or short paragraphs.
+
+2.  **Change Logs:** (for developer use)
+    * FILENAME: CHANGELOGS
+    * Detail the specific changes made in this release.
+    * Include technical details relevant to developers (e.g., affected modules, significant code modifications).
+    * Target audience: Developers and technical teams.
+    * Format: More detailed bullet points or a structured list of changes.
+
+3.  **Support Document (for customer support and management team - non-technical):**
+    * FILENAME: SUPPORTDOC
+    * Explain the changes in a way that is easily understandable for non-technical audiences.
+    * Focus on the user impact and any necessary actions for support teams or customers.
+    * Avoid technical jargon.
+    * Format: Simple language, clear headings, and potentially FAQs.
+
+4.  **Developer Document (for developer use):**
+    * FILENAME: DEVDOC
+    * Provide insights into the reasoning behind significant code changes.
+    * Highlight potential areas of complexity or risk.
+    * Include relevant technical details that might aid in future debugging efforts.
+    * Format: More detailed explanations, potentially referencing specific code sections or design decisions.
+
+**Instructions for Gemini:**
+* Prioritize accuracy and clarity in your responses.
+* Being concise in important - not at the cost of understandablility.
+* Synthesize information effectively from all available inputs.
+* Tailor the language and level of detail to the specific target audience for each document.
+* If information is missing, clearly state what is absent and how it might impact the generated document. If possible, make reasonable inferences.
+* Use formatting (bullet points, headings, etc.) to improve readability.
