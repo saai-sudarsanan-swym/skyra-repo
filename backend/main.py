@@ -5,6 +5,7 @@ from google import generativeai as genai
 load_dotenv()
 import base64
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
 api_key = os.getenv('GEMINI_API_KEY','xxx')
@@ -102,6 +103,7 @@ def send_files_and_get_response(prompt: str, file_paths: list) -> str:
         return None
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Configuration
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'input')
