@@ -25,8 +25,8 @@ The following information is available for this release/change:
 **Timestamp of the Github Code:** {{ github_timestamp }}
 
 Based on the available information, please generate the following output markdown files. If specific information is missing and crucial for a particular document, please indicate what information is needed or make reasonable assumptions based on the available context, clearly stating your assumptions.
-Each section should be properly formatted and seperated between each other using a horizontal divider ('---'). The title for each section will be provided in the output description.
-DO NOT ENCAPSULATE with "```markdown"
+Each section should be properly formatted and seperated between each other using a horizontal divider ('---'). The title for each section will be provided in the output description. Do not ENCAPSULATE with "```markdown"
+
 **Output Requirements:**
 
 1.  **Release Notes:** (for developer use)
