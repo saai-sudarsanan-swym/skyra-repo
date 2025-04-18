@@ -2,7 +2,7 @@
 curl -X GET http://localhost:8000/health
 
 
-PR_NUMBER=5
+PR_NUMBER=$1
 REPO_NAME=sample-repository
 
 FILE_NAME=$(date +%Y%m%d%H%M%S)_change_${REPO_NAME}_${PR_NUMBER}.md
