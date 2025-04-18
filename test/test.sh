@@ -18,7 +18,4 @@ curl -X POST http://localhost:8000/generate \
   -H "Content-Type: multipart/form-data" -o ../frontend/src/${FILE_NAME}
 
 echo "- [$(date +%Y%m%d%H%M%S)_change_${REPO_NAME}_${PR_NUMBER}](./${FILE_NAME})" >> ../frontend/src/SUMMARY.md
-mdbook build ../frontend --dest-dir ../docs
-git add .
-git commit -m "Add ${FILE_NAME} to SUMMARY.md"
-git push origin main
+mdbook build ../frontend --dest-dir ../frontend/book
