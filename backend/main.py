@@ -103,7 +103,7 @@ def send_files_and_get_response(prompt: str, file_paths: list) -> str:
         return None
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)
 
 # Configuration
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'input')
@@ -116,8 +116,11 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/upload', methods=['POST'])
+@app.route('/upload', methods=['POST', 'OPTIONS'])
 def upload_files():
+    if request.method == 'OPTIONS':
+        return '', 204
+    
     if 'feature_doc' not in request.files or 'design_doc' not in request.files:
         return jsonify({'error': 'Both feature_doc and design_doc files are required.'}), 400
 
@@ -136,10 +139,14 @@ def upload_files():
     feature_doc.save(feature_doc_path)
     design_doc.save(design_doc_path)
 
-    return jsonify({'message': 'Files uploaded successfully.'}), 200
+    response = jsonify({'message': 'Files uploaded successfully.'})
+    return response
 
-@app.route('/generate', methods=['POST'])
+@app.route('/generate', methods=['POST', 'OPTIONS'])
 def generate_docs():
+    if request.method == 'OPTIONS':
+        return '', 204
+    
     # Check if the files exist
     feature_doc_path = os.path.join(app.config['UPLOAD_FOLDER'], 'feature_doc.md')
     design_doc_path = os.path.join(app.config['UPLOAD_FOLDER'], 'design_doc.md')
@@ -171,4 +178,4 @@ def generate_docs():
         return jsonify({'error': 'Failed to generate response.'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=8000,debug=True)

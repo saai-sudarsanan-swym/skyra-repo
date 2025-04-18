@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios';
 import './App.css'
 
 function App() {
@@ -22,18 +23,19 @@ function App() {
     }
 
     const formData = new FormData();
-    formData.append('designDoc', files.designDoc);
-    formData.append('specDoc', files.specDoc);
+    formData.append('feature_doc', files.specDoc);
+    formData.append('design_doc', files.designDoc);
 
     try {
-      const response = await fetch('http://localhost:5000/upload', {
-        method: 'POST',
-        body: formData,
+      const uploadResponse = await axios.post('http://localhost:8000/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
       });
 
-      console.log(response);
+      console.log('Upload response:', uploadResponse);
 
-      if (response.ok) {
+      if (uploadResponse.status === 200) {
         setUploadStatus('Documents uploaded successfully!');
         setFiles({ designDoc: null, specDoc: null });
       } else {
