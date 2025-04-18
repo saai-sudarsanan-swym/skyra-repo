@@ -18,3 +18,20 @@ def get_pr_details(owner, api_version, repo, pr_number, output_path):
         f.write("Commit Messages:\n")
         for idx, commit in enumerate(commits_data, 1):
             f.write(f"{idx}. {commit['commit']['message']}\n")
+
+def get_pr_diff(owner, api_version, repo, pr_number, output_path):
+    headers = {
+        "Authorization": f"Bearer {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github.v3.patch",
+        "X-GitHub-Api-Version": api_version
+    }
+    base_url = f"https://api.github.com/repos/{owner}/{repo}"
+    diff_url = f"{base_url}/pulls/{pr_number}"
+    response = requests.get(diff_url, headers=headers)
+
+    with open(output_path, 'w') as f:
+        f.write(response.text)
+    if response.status_code == 200:
+        print(f"Diff saved to {output_path}")
+    else:
+        print(f"Failed to fetch diff: {response.status_code} - {response.text}")

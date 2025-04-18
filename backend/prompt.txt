@@ -17,24 +17,9 @@ The following information is available for this release/change:
 {{ Pr Description and Commits }}
 {% endif %}
 
-{% if logs %}
-**Code Logs:**
-{{ logs }}
-{% endif %}
-
-{% if comments %}
-**Code Comments:**
-{{ comments }}
-{% endif %}
-
-{% if function_docstrings %}
-**Function Document Strings:**
-{{ function_docstrings }}
-{% endif %}
-
-{% if pull_request_description %}
-**Pull Request Description:**
-{{ pull_request_description }}
+{% if pr_diff (Contains Code Comments, Code Logs, Function Doc Strings) %}
+**Pr Diff:**
+{{ Pr Diff }}
 {% endif %}
 
 **Timestamp of the Github Code:** {{ github_timestamp }}
