@@ -25,11 +25,11 @@ The following information is available for this release/change:
 **Timestamp of the Github Code:** {{ github_timestamp }}
 
 Based on the available information, please generate the following output markdown files. If specific information is missing and crucial for a particular document, please indicate what information is needed or make reasonable assumptions based on the available context, clearly stating your assumptions.
-Each output markdown file should be properly formatted and seperated between each other using a "===================={{FILENAME}}====================". Filename will be provided in the output description.
+Each section should be properly formatted and seperated between each other using a horizontal divider ('---'). The title for each section will be provided in the output description.
 **Output Requirements:**
 
 1.  **Release Notes:** (for developer use)
-    * FILENAME: RELEASE NOTES
+    * TITLE: RELEASE NOTES
     * **Release Scope:** Provide a high-level overview of the changes enabled by this release.
     * **Target Audience:** Who is the primary target audience for the features included in this release?
     * **Key Changes:** (If any point is not applicable for the PR do not include it)
@@ -53,21 +53,21 @@ Each output markdown file should be properly formatted and seperated between eac
         * **Release Candidates (Dev Only - Multiple RCs on Same Day):** vYYYY-MM-D.minor-RC (increment minor for each RC, e.g., v2025-04-18.2-RC)
 
 2.  **Change Logs:** (for developer use)
-    * FILENAME: CHANGE LOGS
+    * TITLE: CHANGE LOGS
     * Detail the specific changes made in this release.
     * Include technical details relevant to developers (e.g., affected modules, significant code modifications).
     * Target audience: Developers and technical teams.
     * Format: More detailed bullet points or a structured list of changes.
 
 3.  **Support Document (for customer support and management team - non-technical):**
-    * FILENAME: SUPPORT DOC
+    * TITLE: SUPPORT DOC
     * Explain the changes in a way that is easily understandable for non-technical audiences.
     * Focus on the user impact and any necessary actions for support teams or customers.
     * Avoid technical jargon.
     * Format: Simple language, clear headings, and potentially FAQs.
 
 4.  **Developer Document (for developer use):**
-    * FILENAME: DEV DOC
+    * TITLE: DEV DOC
     * Provide insights into the reasoning behind significant code changes.
     * Highlight potential areas of complexity or risk.
     * Include relevant technical details that might aid in future debugging efforts.
