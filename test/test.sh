@@ -19,7 +19,6 @@ curl -X POST http://localhost:8000/generate \
 
 echo "- [$(date +%Y%m%d%H%M%S)_change_${REPO_NAME}_${PR_NUMBER}](./${FILE_NAME})" >> ../frontend/src/SUMMARY.md
 mdbook build ../frontend --dest-dir ../docs
-git add ../frontend/src/SUMMARY.md
-git add ../frontend/src/${FILE_NAME}
+git add .
 git commit -m "Add ${FILE_NAME} to SUMMARY.md"
 git push origin main
