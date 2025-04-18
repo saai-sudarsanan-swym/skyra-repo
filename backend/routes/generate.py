@@ -2,7 +2,7 @@ import os
 from flask import Blueprint, request, jsonify, send_file
 from werkzeug.utils import secure_filename
 from config import OWNER, API_VERSION
-from services.github import get_pr_details, generate_pr_diff
+from services.github import get_pr_details, get_pr_diff
 from services.utils import allowed_file
 from services.llm import send_files_and_get_response
 import json
@@ -55,7 +55,7 @@ def generate_docs():
 
     # Fetch PR details
     get_pr_details(OWNER, API_VERSION, repo, pr_number, pr_details_path)
-    generate_pr_diff(OWNER, API_VERSION, repo, pr_number, pr_diff_path)
+    get_pr_diff(OWNER, API_VERSION, repo, pr_number, pr_diff_path)
     
     try:
         with open('prompt.txt', 'r') as f:
