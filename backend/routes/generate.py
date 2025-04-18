@@ -64,7 +64,7 @@ def generate_docs():
         return jsonify({'error': 'Prompt file not found.'}), 500
 
     # Get the response from the LLM
-    response = send_files_and_get_response(prompt, [feature_doc_path, design_doc_path, pr_details_path])
+    response = send_files_and_get_response(prompt, [feature_doc_path, design_doc_path, pr_details_path, pr_diff_path])
 
     if not response:
         return jsonify({'error': 'LLM generation failed.'}), 500
