@@ -32,7 +32,7 @@ Each output markdown file should be properly formatted and seperated between eac
     * FILENAME: RELEASENOTES
     * **Release Scope:** Provide a high-level overview of the changes enabled by this release.
     * **Target Audience:** Who is the primary target audience for the features included in this release?
-    * **Key Changes:**
+    * **Key Changes:** (If any point is not applicable for the PR do not include it)
         * **New Features:** Detail any new functionalities introduced.
         * **Improvements:** Describe enhancements to existing features.
         * **Bug Fixes:** List any resolved issues.
