@@ -2,7 +2,7 @@
 curl -X GET http://localhost:8000/health
 
 
-PR_NUMBER=3
+PR_NUMBER=5
 REPO_NAME=sample-repository
 
 FILE_NAME=$(date +%Y%m%d%H%M%S)_change_${REPO_NAME}_${PR_NUMBER}.md
@@ -19,3 +19,7 @@ curl -X POST http://localhost:8000/generate \
 
 echo "- [$(date +%Y%m%d%H%M%S)_change_${REPO_NAME}_${PR_NUMBER}](./${FILE_NAME})" >> ../frontend/src/SUMMARY.md
 mdbook build ../frontend --dest-dir ../frontend/book
+git add ../frontend/src/SUMMARY.md
+git add ../frontend/src/${FILE_NAME}
+git commit -m "Add ${FILE_NAME} to SUMMARY.md"
+git push origin main
