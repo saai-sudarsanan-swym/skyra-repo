@@ -45,10 +45,27 @@ Each output markdown file should be properly formatted and seperated between eac
 
 1.  **Release Notes:** (for developer use)
     * FILENAME: RELEASENOTES
-    * Provide a high-level overview of the changes in this release.
-    * Highlight new features, improvements, and bug fixes.
-    * Target audience: Who is the target audience of the implemented features?
-    * Format: Clear and concise bullet points or short paragraphs.
+    * **Release Scope:** Provide a high-level overview of the changes enabled by this release.
+    * **Target Audience:** Who is the primary target audience for the features included in this release?
+    * **Key Changes:**
+        * **New Features:** Detail any new functionalities introduced.
+        * **Improvements:** Describe enhancements to existing features.
+        * **Bug Fixes:** List any resolved issues.
+    * **Breaking Changes:** Outline any changes that might require modifications in dependent systems or integrations. Clearly describe the impact and necessary steps for adaptation.
+    * **Non-Breaking Changes:** Highlight significant changes that are backward-compatible and do not require immediate action from consumers.
+    * **Technical Details:**
+        <details>
+        <summary>Expand for Test Cases, Screenshots, and Verbose Details</summary>
+        * **Test Cases:** (Reference IDs or brief descriptions)
+        * **Screenshots:** (If applicable, provide links or embedded images illustrating key changes)
+        * **Verbose Details:** (Include any in-depth explanations or technical specifications)
+        </details>
+    * **Related Pull Requests/Services:** List the relevant GitHub Pull Request numbers and the names of any services touched by this release.
+    * **Service Level Versions (If Applicable):** For any impacted services owned by other teams but included in this release track, specify their version numbers (e.g., ServiceA: v1.2.3, ServiceB: v4.0.1).
+    * **Release Version:** Specify the version of this release using the following format:
+        * **Released Deployments:** vYYYY-MM-D.minor (e.g., v2025-04-18.1)
+        * **Release Candidates (Dev Only - Single RC):** vYYYY-MM-D.minor-RC (e.g., v2025-04-18.1-RC)
+        * **Release Candidates (Dev Only - Multiple RCs on Same Day):** vYYYY-MM-D.minor-RC (increment minor for each RC, e.g., v2025-04-18.2-RC)
 
 2.  **Change Logs:** (for developer use)
     * FILENAME: CHANGELOGS
